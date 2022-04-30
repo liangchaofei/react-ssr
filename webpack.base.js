@@ -1,18 +1,5 @@
-const path =  require('path')
-const nodeExternals = require('webpack-node-externals')
-const merge = require('webpack-merge').default;
-const config = require('./webpack.base.js');
 
-
-const serverConfig = {
-    mode: 'development',
-    target: 'node', // 告诉webpack打包node代码
-    entry: './src/server/index.js',
-    output: {
-        filename: 'bundle.js',
-        path:  path.resolve(__dirname, 'build')
-    },
-    externals: [nodeExternals()],
+module.exports = {
     module: {
         rules: [
             {
@@ -29,6 +16,4 @@ const serverConfig = {
             }
         ]
     }
-};
-
-module.exports = merge(config, serverConfig)
+}
